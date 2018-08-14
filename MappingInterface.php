@@ -9,6 +9,11 @@
 namespace Gora\DTO;
 
 
+/**
+ * Класс отвечающий за создание объектов на основе имени класа и свйост
+ * Interface MappingInterface
+ * @package Gora\DTO
+ */
 interface MappingInterface
 {
 
@@ -20,6 +25,16 @@ interface MappingInterface
     function __construct($className, $properties);
 
 
+    /**
+     * Возвращает объект типа $className созданный на основе перданных свойст
+     * @return mixed
+     */
     function createInstance();
+
+    /**
+     * @param DataCollectionInterface $dataCollection
+     * @return $this
+     */
+    function setDataCollection(DataCollectionInterface $dataCollection);
 
 }

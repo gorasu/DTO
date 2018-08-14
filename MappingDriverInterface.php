@@ -8,8 +8,17 @@
 namespace Gora\DTO;
 
 
+/**
+ * Драйвер который на основе каких то настроек свойст объекта DTO подготавливает экземпляр MappingInterface
+ * Interface MappingDriverInterface
+ * @package Gora\DTO
+ */
 interface MappingDriverInterface
 {
-    function createObject($className,DataCollectionInterface $dataCollection);
+    /**
+     * @param $className
+     * @return MappingInterface
+     */
+    function createObject($className);
 
 }

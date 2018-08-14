@@ -17,6 +17,8 @@ class Mapping implements MappingInterface
      */
     private $properties;
 
+    private $dataCollection;
+
 
     /**
      * MappingInterface constructor.
@@ -43,5 +45,15 @@ class Mapping implements MappingInterface
         return $object;
 
 
+    }
+
+    /**
+     * @param DataCollectionInterface $dataCollection
+     * @return $this
+     */
+    function setDataCollection(DataCollectionInterface $dataCollection)
+    {
+        $this->dataCollection = $dataCollection;
+        return $this;
     }
 }
