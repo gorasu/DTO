@@ -34,4 +34,13 @@ class DataCollection implements DataCollectionInterface
         }
        return $this->data[$key];
     }
+
+    /**
+     * @param $data
+     * @return $this
+     */
+    static function create($data)
+    {
+        return new Static($data);
+    }
 }
