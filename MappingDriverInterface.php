@@ -18,8 +18,9 @@ interface MappingDriverInterface
 
 
     /**
+     *
      * @param $className
      * @return PropertyInterface[]
      */
-    function getProperties($className);
+    function createProperties($className);
 }
