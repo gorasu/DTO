@@ -15,10 +15,11 @@ namespace Gora\DTO;
  */
 interface MappingDriverInterface
 {
+
+
     /**
      * @param $className
-     * @return MappingInterface
+     * @return PropertyInterface[]
      */
-    function createObject($className);
-
+    function getProperties($className);
 }
