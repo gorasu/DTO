@@ -22,7 +22,7 @@ class AnnotationDriver implements MappingDriverInterface
      * @return PropertyInterface[]
      * @throws \ReflectionException
      */
-    public function getProperties($className){
+    public function createProperties($className){
 
         if(!($propertiesReflection = static::getPropertiesReflectionCache($className))){
             $reflectionClass = new \ReflectionClass($className);
