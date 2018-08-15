@@ -20,9 +20,9 @@ interface MappingInterface
     /**
      * MappingInterface constructor.
      * @param $class string
-     * @param $properties PropertyInterface[]
+     * @param $mappingDriver MappingDriverInterface
      */
-    function __construct($className, $properties);
+    function __construct($className, MappingDriverInterface $mappingDriver);
 
 
     /**
