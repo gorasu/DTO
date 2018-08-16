@@ -9,8 +9,15 @@
 namespace Gora\DTO;
 
 
+/**
+ * Class DataCollection
+ * @package Gora\DTO
+ */
 class DataCollection implements DataCollectionInterface
 {
+    /**
+     * @var array
+     */
     private $data;
 
     /**
@@ -22,11 +29,19 @@ class DataCollection implements DataCollectionInterface
         $this->data = $data;
     }
 
+    /**
+     * @param $key
+     * @return bool
+     */
     function isExists($key)
     {
         return isset($this->data[$key]);
     }
 
+    /**
+     * @param $key
+     * @return mixed|null
+     */
     function getValue($key)
     {
         if(!$this->isExists($key)){
