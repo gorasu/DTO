@@ -28,7 +28,7 @@ class Property implements PropertyInterface
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getType()
     {
@@ -36,7 +36,7 @@ class Property implements PropertyInterface
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName()
     {
@@ -44,7 +44,7 @@ class Property implements PropertyInterface
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getApiName()
     {
@@ -52,11 +52,11 @@ class Property implements PropertyInterface
     }
 
     /**
-     * @return mixed
+     * @return bool
      */
     public function isRequired()
     {
-        return $this->required;
+         return filter_var($this->required, FILTER_VALIDATE_BOOLEAN);
     }
 
     /**
