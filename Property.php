@@ -9,16 +9,41 @@
 namespace Gora\DTO;
 
 
+/**
+ * Class Property
+ * @package Gora\DTO
+ */
 class Property implements PropertyInterface
 {
 
+    /**
+     * @var string|null
+     */
     private $type = null;
+    /**
+     * @var string|null
+     */
     private $name = null;
+    /**
+     * Имя свойства в API
+     * @var string|null
+     */
     private $apiName = null;
+    /**
+     * @var bool
+     */
     private $required = false;
+    /**
+     * @var mixed|null
+     */
     private $value = null;
 
-    function __construct($propertyName,array $propertyData)
+    /**
+     * Property constructor.
+     * @param $propertyName
+     * @param array $propertyData
+     */
+    function __construct($propertyName, array $propertyData)
     {
         foreach ($propertyData as $name =>$value ){
             $this->{$name} = $value;
