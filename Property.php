@@ -17,9 +17,9 @@ class Property implements PropertyInterface
 {
 
     /**
-     * @var string|null
+     * @var string
      */
-    private $type = null;
+    private $type = "string";
     /**
      * @var string|null
      */
@@ -49,11 +49,12 @@ class Property implements PropertyInterface
             $this->{$name} = $value;
         }
 
+        $this->type = new PropertyType($this->type);
         $this->name = $propertyName;
     }
 
     /**
-     * @return string
+     * @return PropertyTypeInterface
      */
     public function getType()
     {
