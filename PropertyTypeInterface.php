@@ -29,6 +29,12 @@ interface PropertyTypeInterface
     /**
      * @return bool
      */
-    function isDtoObject();
+    function isDtoClass();
+
+
+    /**
+     * @return string
+     */
+    function getDtoClassName();
 
 }
