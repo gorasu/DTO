@@ -9,7 +9,7 @@ namespace Gora\DTO;
 
 
 /**
- * Драйвер который на основе каких то настроек свойст объекта DTO подготавливает экземпляр MappingInterface
+ * Драйвер который на основе каких то настроек свойст объекта DTO подготавливает экземпляр ConvectorInterface
  * Interface MappingDriverInterface
  * @package Gora\DTO
  */

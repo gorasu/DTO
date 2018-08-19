@@ -11,15 +11,15 @@ namespace Gora\DTO;
 
 /**
  * Класс отвечающий за создание объектов на основе имени класа и свйост
- * Interface MappingInterface
+ * Interface DTOCreatorInterface
  * @package Gora\DTO
  */
-interface MappingInterface
+interface DTOCreatorInterface
 {
 
     /**
-     * MappingInterface constructor.
-     * @param $class string
+     * ConvectorInterface constructor.
+     * @param $className string
      * @param $mappingDriver MappingDriverInterface
      */
     function __construct($className, MappingDriverInterface $mappingDriver);

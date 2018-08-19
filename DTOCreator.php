@@ -11,11 +11,21 @@ namespace Gora\DTO;
 
 use ReflectionClass;
 
-class Mapping implements MappingInterface
+/**
+ * Class DTOCreator
+ * @package Gora\DTO
+ */
+class DTOCreator implements DTOCreatorInterface
 {
+    /**
+     * @var
+     */
     private $className;
 
 
+    /**
+     * @var
+     */
     private $dataCollection;
     /**
      * @var MappingDriverInterface
@@ -29,8 +39,8 @@ class Mapping implements MappingInterface
 
 
     /**
-     * MappingInterface constructor.
-     * @param $class string
+     * ConvectorInterface constructor.
+     * @param $className
      * @param $mappingDriver MappingDriverInterface
      */
     public function __construct($className, MappingDriverInterface $mappingDriver)
@@ -59,7 +69,7 @@ class Mapping implements MappingInterface
             if($property->isRequired() && empty($property->getValue())){
                 throw  new \Exception($property->getName().' обязательно для заполнения');
             }
-//@Todo заливку приватных методов нужно сделать
+        //@Todo нужно реализовать заливку приватных свойств
             $object->{$property->getName()} = $property->getValue();
         }
         return $object;
@@ -129,6 +139,9 @@ class Mapping implements MappingInterface
         $this->properties = $properties;
     }
 
+    /**
+     *
+     */
     private function fillValuesToProperties(){
         $dataCollection = $this->getDataCollection();
         foreach ($this->getProperties() as $property) {
