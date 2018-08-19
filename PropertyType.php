@@ -37,17 +37,27 @@ class PropertyType implements PropertyTypeInterface
     /**
      * @return bool
      */
-    function isDtoObject()
+    function isDtoClass()
     {
-      $className =   rtrim($this->getType(),'[]');
-      return class_exists($className);
+      return class_exists($this->getDtoClassName());
     }
 
     /**
-     * @return mixed
+     * @return string
+     */
+    function getDtoClassName()
+    {
+        return rtrim($this->getType(),'[]');
+    }
+
+
+    /**
+     * @return string
      */
     private function getType()
     {
         return $this->type;
     }
+
+
 }
