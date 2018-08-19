@@ -1,0 +1,20 @@
+{
+  "name": "Gora/DTO",
+  "description": "DTO",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Voronin Alexandr",
+      "email": "info@gora.su"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Gora\\DTO\\": ""
+    }
+  },
+  "require": {
+    "php": "^5.5.9"
+
+  }
+}
