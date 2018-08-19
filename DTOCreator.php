@@ -147,16 +147,33 @@ class DTOCreator implements DTOCreatorInterface
         foreach ($this->getProperties() as $property) {
             if ($dataCollection->isExists($property->getApiName())) {
                 $value = $dataCollection->getValue($property->getApiName());
-                if (class_exists($property->getType())) {
-                    $mapping = new Static($property->getType(), $this->getMappingDriver());
-                    $mapping->setDataCollection($dataCollection::create($value));
-                    $value = $mapping->createInstance();
-
+                if ($property->getType()->isDtoClass()) {
+                    if($property->getType()->isArray()){
+                        $newValue = [];
+                        foreach ($value as $val){
+                            $newValue[] =  $this->createDtoObjectValue($property->getType(),$val);
+                        }
+                        $value = $newValue;
+                    }else {
+                        $value = $this->createDtoObjectValue($property->getType(),$value);
+                    }
                 }
 
                 $property->setValue($value);
             }
         }
+    }
+
+    /**
+     * @param PropertyTypeInterface $propertyType
+     * @param $value
+     * @return DTOObjectInterface|mixed
+     */
+    private function createDtoObjectValue(PropertyTypeInterface $propertyType, $value){
+        $dataCollection = $this->getDataCollection();
+        $mapping = new Static($propertyType->getDtoClassName(), $this->getMappingDriver());
+        $mapping->setDataCollection($dataCollection::create($value));
+        return $mapping->createInstance();
     }
 
 
