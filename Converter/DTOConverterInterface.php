@@ -17,10 +17,6 @@ use Gora\DTO\DTOObjectInterface;
  */
 interface DTOConverterInterface
 {
-    /**
-     * DTOConverterInterface constructor.
-     */
-    function __construct();
 
     /**
      * @param DTOObjectInterface $DTOObject
