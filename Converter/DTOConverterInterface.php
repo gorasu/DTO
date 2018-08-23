@@ -23,19 +23,9 @@ interface DTOConverterInterface
 
     /**
      * @param DTOObjectInterface $DTOObject
-     * @return $this
+     * @return DTOConverterFormatInterface
      */
     function convert(DTOObjectInterface $DTOObject);
-
-    /**
-     * @return array
-     */
-    function toArray();
-
-    /**
-     * @return string
-     */
-    function toJson();
 
 
 }
