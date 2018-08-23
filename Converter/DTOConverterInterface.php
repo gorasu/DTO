@@ -10,6 +10,7 @@ namespace Gora\DTO\Converter;
 
 
 use Gora\DTO\DTOObjectInterface;
+use Gora\DTO\MappingDriverInterface;
 
 /**
  * Interface DTOConverterInterface
@@ -17,6 +18,8 @@ use Gora\DTO\DTOObjectInterface;
  */
 interface DTOConverterInterface
 {
+
+    function __construct(MappingDriverInterface $mappingDriver);
 
     /**
      * @param DTOObjectInterface $DTOObject
