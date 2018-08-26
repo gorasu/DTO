@@ -13,30 +13,22 @@ use Gora\DTO\DTOObjectInterface;
 use Gora\DTO\Exception\NotDoneException;
 use Gora\DTO\Exception\PropertyIsRequiredException;
 use Gora\DTO\Mappings\Driver\MappingDriverInterface;
+use Gora\DTO\Mappings\Property\PropertyCollectionFillValueInterface;
+use Gora\DTO\Mappings\Property\PropertyCollectionValidatorInterface;
 use Gora\DTO\Mappings\Property\PropertyInterface;
 
 class DTOConverterFormat implements DTOConverterFormatInterface
 {
 
-    /**
-     * @var DTOObjectInterface
-     */
-    private $DTOObject;
-    /**
-     * @var MappingDriverInterface
-     */
-    private $mappingDriver;
 
     /**
-     * @var PropertyInterface[]
+     * @var PropertyCollectionValidatorInterface
      */
-    private $properties;
+    private $propertyCollection;
 
     public function __construct(DTOObjectInterface $DTOObject, MappingDriverInterface $mappingDriver)
     {
-        $this->DTOObject = $DTOObject;
-        $this->mappingDriver = $mappingDriver;
-        $this->properties = $mappingDriver->createProperties(get_class($this->getDTOObject()));
+        $this->propertyCollection =  $this->createPropertyCollection($DTOObject,$mappingDriver);
 
     }
 
@@ -46,17 +38,12 @@ class DTOConverterFormat implements DTOConverterFormatInterface
      */
     function toArray()
     {
-       $properties =  $this->getMappingDriver()->createProperties(get_class($this->getDTOObject()));
-       $dtoObject = $this->getDTOObject();
-       $result = [];
-       foreach ($properties as $property){
-
-           $value = $dtoObject->{$property->getName()};
-           $this->validate($value,$property);
-
-           $result[$property->getApiName()] =  $value;
-       }
-       return $result;
+        $result = [];
+        /** @var PropertyInterface $property */
+        foreach ($this->getPropertyCollection() as $property) {
+            $result[$property->getApiName()] = $property->getValue();
+        }
+        return $result;
 
     }
 
@@ -68,32 +55,31 @@ class DTOConverterFormat implements DTOConverterFormatInterface
         throw new NotDoneException();
     }
 
+
     /**
-     * @return MappingDriverInterface
+     * @throws \Exception
+     * @return PropertyCollectionValidatorInterface
      */
-    private function getMappingDriver()
+    private function createPropertyCollection(DTOObjectInterface $DTOObject, MappingDriverInterface $mappingDriver)
     {
-        return $this->mappingDriver;
-    }
 
-    /**
-     * @return DTOObjectInterface
-     */
-    private function getDTOObject()
-    {
-        return $this->DTOObject;
-    }
-
-    /**
-     * @param $value
-     * @param PropertyInterface $property
-     * @throws PropertyIsRequiredException
-     */
-    private function validate($value, PropertyInterface $property){
-
-        if(empty($value) && $property->isRequired()){
-            throw new PropertyIsRequiredException($property);
+        /** @var PropertyCollectionValidatorInterface $propertyCollection */
+        $propertyCollection = $mappingDriver->createProperties(get_class($DTOObject));
+        if (!($propertyCollection instanceof PropertyCollectionFillValueInterface)) {
+            throw new \Exception('$propertyCollection must implement ' . PropertyCollectionFillValueInterface::class);
         }
+        $propertyCollection->fillValueByDtoObject($DTOObject);
+        return $propertyCollection;
 
     }
+
+    /**
+     * @return PropertyCollectionValidatorInterface
+     */
+    private function getPropertyCollection()
+    {
+        return $this->propertyCollection;
+    }
+
+
 }
