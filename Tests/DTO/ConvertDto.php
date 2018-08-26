@@ -9,9 +9,9 @@
 namespace Gora\DTO\Tests\DTO;
 
 
-use Gora\DTO\DTOObjectInterface;
+use Gora\DTO\Converter\DTOConverter;
 
-class ConvertDto implements DTOObjectInterface
+class ConvertDto extends AbstractDTO
 {
 
     /**
@@ -20,22 +20,6 @@ class ConvertDto implements DTOObjectInterface
      */
     public $name;
 
-    /**
-     * @DTO({"type":"string","apiName":"company","required":"true"})
-     * @var
-     */
-    public $company;
-    /**
-     * @DTO({"type":"\\Gora\\DTO\\Tests\\DTO\\SubMainDto[]","apiName":"sub_mains","required":"true"})
-     * @var
-     */
-    public $subMains;
-
-    /**
-     * @DTO({"type":"\\Gora\\DTO\\Tests\\DTO\\SubMainDto","apiName":"sub_main","required":"true"})
-     * @var
-     */
-    public $subMain;
 
     public function __construct()
     {
