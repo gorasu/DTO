@@ -9,9 +9,9 @@
 namespace Gora\DTO\Mappings\Driver;
 
 
-use Gora\DTO\Mappings\Driver\MappingDriverInterface;
 use Gora\DTO\Mappings\Property\Property;
-use Gora\DTO\Mappings\Property\PropertyInterface;
+use Gora\DTO\Mappings\Property\PropertyCollection;
+use Gora\DTO\Mappings\Property\PropertyCollectionInterface;
 use ReflectionProperty;
 
 class AnnotationDriver implements MappingDriverInterface
@@ -22,11 +22,12 @@ class AnnotationDriver implements MappingDriverInterface
 
     /**
      * @param $className
-     * @return PropertyInterface[]
+     * @return PropertyCollectionInterface
      * @throws \ReflectionException
      */
     public function createProperties($className){
 
+        $propertiesCollection  = new PropertyCollection();
         if(!($propertiesReflection = static::getPropertiesReflectionCache($className))){
             $reflectionClass = new \ReflectionClass($className);
             $propertiesReflection = $reflectionClass->getProperties();
@@ -34,18 +35,17 @@ class AnnotationDriver implements MappingDriverInterface
                 static::setPropertiesReflectionCache($className, $reflectionProperty);
             }
         }
-        $properties = [];
         foreach ($propertiesReflection as $reflectionProperty){
             preg_match('/@DTO(\((.*?)\))*/',$reflectionProperty->getDocComment(),$dtoInfo);
 
             $jsonString = isset($dtoInfo[2]) ? $dtoInfo[2] : null;
             if($jsonString) {
                 $propertyData = json_decode($jsonString,true);
-                $properties[] = new Property($reflectionProperty->getName(),$propertyData);
+                $propertiesCollection->add(new Property($reflectionProperty->getName(),$propertyData));
             }
 
         }
-       return $properties;
+       return $propertiesCollection;
 
 
 
