@@ -7,14 +7,13 @@
  */
 
 namespace Gora\DTO\Mappings\Property;
-use Gora\DTO\Exception\PropertyIsRequiredException;
 
 
 /**
  * Class Property
  * @package Gora\DTO
  */
-class Property implements PropertyInterface
+class Property implements PropertyInterface, PropertyValidateInterface
 {
 
     /**
@@ -103,18 +102,8 @@ class Property implements PropertyInterface
      */
     public function setValue($value)
     {
+        $this->validator->validate($value,$this);
         $this->value = $value;
-    }
-
-    /**
-     * @return void
-     * @throws PropertyIsRequiredException
-     * @throws \Exception
-     */
-    function validate()
-    {
-        $this->validator->validate($this);
-
     }
 
     /**
@@ -124,5 +113,8 @@ class Property implements PropertyInterface
     function setValidator(PropertyValidatorInterface $propertyValidator)
     {
         $this->validator = $propertyValidator;
+        return $this;
     }
+
+
 }
