@@ -13,7 +13,6 @@ class PropertyData implements PropertyDataInterface
 {
 
     private $type = "string";
-    private $name = null;
     private $apiName = null;
     private $required = false;
 
@@ -32,13 +31,6 @@ class PropertyData implements PropertyDataInterface
         return $this->type;
     }
 
-    /**
-     * @return null
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 
     /**
      * @return null

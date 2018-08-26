@@ -13,7 +13,6 @@ interface PropertyDataInterface
 {
 
     function getType();
-    function getName();
     function getApiName();
     function getRequired();
 
