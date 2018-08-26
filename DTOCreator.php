@@ -12,6 +12,7 @@ namespace Gora\DTO;
 use ReflectionClass;
 
 /**
+ * DTOCreator создает объект DTO на базе полученных данных, как правило это ответ  API
  * Class DTOCreator
  * @package Gora\DTO
  */
