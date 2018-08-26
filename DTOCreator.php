@@ -9,6 +9,7 @@
 namespace Gora\DTO;
 
 
+use Gora\DTO\Mapping\MappingDriverInterface;
 use ReflectionClass;
 
 /**

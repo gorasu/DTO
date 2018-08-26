@@ -12,7 +12,7 @@ namespace Gora\DTO\Converter;
 use Gora\DTO\DTOObjectInterface;
 use Gora\DTO\Exception\NotDoneException;
 use Gora\DTO\Exception\PropertyIsRequiredException;
-use Gora\DTO\MappingDriverInterface;
+use Gora\DTO\Mapping\MappingDriverInterface;
 use Gora\DTO\PropertyInterface;
 
 class DTOConverterFormat implements DTOConverterFormatInterface
