@@ -62,4 +62,31 @@ class PropertyType implements PropertyTypeInterface
     }
 
 
+    /**
+     * @return bool
+     */
+    function isString()
+    {
+        return $this->getTypeInLower() == 'string';
+    }
+
+    /**
+     * @return bool
+     */
+    function isBool()
+    {
+        return $this->getTypeInLower() == 'bool' || $this->getTypeInLower() == 'boolean';
+    }
+
+    /**
+     * @return bool
+     */
+    function isInteger()
+    {
+        return $this->getTypeInLower() == 'integer' || $this->getTypeInLower() == 'int';
+    }
+
+    private function getTypeInLower(){
+        return mb_strtolower($this->getType());
+    }
 }

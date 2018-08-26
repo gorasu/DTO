@@ -31,6 +31,20 @@ interface PropertyTypeInterface
      */
     function isDtoClass();
 
+    /**
+     * @return bool
+     */
+    function isString();
+
+    /**
+     * @return bool
+     */
+    function isBool();
+
+    /**
+     * @return bool
+     */
+    function isInteger();
 
     /**
      * @return string
