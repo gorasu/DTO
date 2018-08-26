@@ -46,14 +46,14 @@ class Property implements PropertyValidateInterface
      * Property constructor.
      * @param $propertyName
      * @param array $propertyData
+     *
      */
-    function __construct($propertyName, array $propertyData)
+    function __construct($propertyName,  PropertyDataInterface $propertyData)
     {
-        foreach ($propertyData as $name =>$value ){
-            $this->{$name} = $value;
-        }
 
-        $this->type = new PropertyType($this->type);
+        $this->required = $propertyData->getRequired();
+        $this->apiName = $propertyData->getApiName();
+        $this->type = new PropertyType($propertyData->getType());
         $this->name = $propertyName;
     }
 

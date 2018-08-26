@@ -12,6 +12,8 @@ namespace Gora\DTO\Mappings\Driver;
 use Gora\DTO\Mappings\Property\Property;
 use Gora\DTO\Mappings\Property\PropertyCollection;
 use Gora\DTO\Mappings\Property\PropertyCollectionInterface;
+use Gora\DTO\Mappings\Property\PropertyData;
+use Gora\DTO\Mappings\Property\PropertyValidator;
 use ReflectionProperty;
 
 class AnnotationDriver implements MappingDriverInterface
@@ -41,7 +43,10 @@ class AnnotationDriver implements MappingDriverInterface
             $jsonString = isset($dtoInfo[2]) ? $dtoInfo[2] : null;
             if($jsonString) {
                 $propertyData = json_decode($jsonString,true);
-                $propertiesCollection->add(new Property($reflectionProperty->getName(),$propertyData));
+
+                $property = new Property($reflectionProperty->getName(),new PropertyData($propertyData));
+                $property->setValidator(new PropertyValidator());
+                $propertiesCollection->add($property);
             }
 
         }
