@@ -7,6 +7,7 @@
  */
 
 namespace Gora\DTO\Mappings\Property;
+use Gora\DTO\Exception\PropertyIsRequiredException;
 use Gora\DTO\Mappings\Property\PropertyInterface;
 use Gora\DTO\Mappings\Property\PropertyType;
 use Gora\DTO\Mappings\Property\PropertyTypeInterface;
@@ -104,4 +105,15 @@ class Property implements PropertyInterface
         $this->value = $value;
     }
 
+    /**
+     * @return void
+     * @throws PropertyIsRequiredException
+     */
+    function validate()
+    {
+        if(empty($this->getValue()) && $this->isRequired()) {
+            throw new PropertyIsRequiredException($this);
+        }
+
+    }
 }
