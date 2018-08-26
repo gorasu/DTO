@@ -18,9 +18,9 @@ class PropertyValidator implements PropertyValidatorInterface
      * @param PropertyInterface $property
      * @throws \Exception
      */
-    function validate(PropertyInterface $property)
+    function validate($value, PropertyInterface $property)
     {
-        if(empty($property->getValue()) && $property->isRequired()) {
+        if(empty($value) && $property->isRequired()) {
             throw new PropertyIsRequiredException($property);
         }
     }

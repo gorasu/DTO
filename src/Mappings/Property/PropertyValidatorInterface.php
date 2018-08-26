@@ -9,19 +9,15 @@
 namespace Gora\DTO\Mappings\Property;
 
 
-use Gora\DTO\Exception\PropertyIsRequiredException;
 
 interface PropertyValidatorInterface
 {
 
     /**
+     * @param $value
      * @param PropertyInterface $property
-     * @throws \Exception
-     * @throws PropertyIsRequiredException
-     * @throws PropertyIsStringException
-     * @throws PropertyIsIntegerException
-     * @throws PropertyIsBoolException
+     * @return
      */
-    function validate(PropertyInterface $property);
+    function validate($value,PropertyInterface $property);
 
 }
