@@ -11,26 +11,12 @@ namespace Gora\DTO\Mappings\Property;
 use Gora\DTO\DTOObjectInterface;
 use Traversable;
 
-class PropertyCollection implements PropertyCollectionInterface, PropertyCollectionAdderInterface, PropertyCollectionFillValueInterface, PropertyCollectionValidatorInterface
+class PropertyCollection implements PropertyCollectionInterface, PropertyCollectionAdderInterface, PropertyCollectionFillValueInterface
 {
     /**
      * @var PropertyInterface[]
      */
     private $properties;
-    /**
-     * @var PropertyValidatorInterface
-     */
-    private $validator;
-
-    /**
-     * PropertyCollectionValidatorInterface constructor.
-     * @param PropertyValidatorInterface $validator
-     */
-    public function __construct(PropertyValidatorInterface $validator)
-    {
-        $this->validator = $validator;
-    }
-
     /**
      * Retrieve an external iterator
      * @link http://php.net/manual/en/iteratoraggregate.getiterator.php
@@ -46,7 +32,6 @@ class PropertyCollection implements PropertyCollectionInterface, PropertyCollect
 
     function add(PropertyInterface $property)
     {
-       $this->setValidatorToProperty($property);
        $this->properties[] = $property;
     }
 
@@ -65,15 +50,5 @@ class PropertyCollection implements PropertyCollectionInterface, PropertyCollect
 
 
 
-    /**
-     * @return PropertyValidatorInterface
-     */
-    function getValidator()
-    {
-       return $this->validator;
-    }
 
-    private function setValidatorToProperty(PropertyValidateInterface $property){
-        $property->setValidator($this->getValidator());
-    }
 }
