@@ -27,10 +27,17 @@ class DTOConverterFormat implements DTOConverterFormatInterface
      */
     private $mappingDriver;
 
+    /**
+     * @var PropertyInterface[]
+     */
+    private $properties;
+
     public function __construct(DTOObjectInterface $DTOObject, MappingDriverInterface $mappingDriver)
     {
         $this->DTOObject = $DTOObject;
         $this->mappingDriver = $mappingDriver;
+        $this->properties = $mappingDriver->createProperties(get_class($this->getDTOObject()));
+
     }
 
     /**
