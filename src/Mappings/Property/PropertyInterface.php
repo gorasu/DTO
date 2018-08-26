@@ -44,5 +44,4 @@ interface PropertyInterface
      * @return mixed
      */
     function getValue();
-
 }
