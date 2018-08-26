@@ -8,11 +8,9 @@
 
 namespace Gora\DTO\Mappings\Property;
 
-
-use Gora\DTO\Exception\PropertyIsRequiredException;
 use Traversable;
 
-class PropertyCollection implements PropertyCollectionInterface
+class PropertyCollection implements PropertyCollectionInterface, PropertyCollectionAdderInterface
 {
     /**
      * @var PropertyInterface[]
