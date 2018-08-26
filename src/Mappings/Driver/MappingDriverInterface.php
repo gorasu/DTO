@@ -6,7 +6,7 @@
  * Time: 21:37
  */
 namespace Gora\DTO\Mappings\Driver;
-use Gora\DTO\Mappings\Property\PropertyInterface;
+use Gora\DTO\Mappings\Property\PropertyCollectionInterface;
 
 
 /**
@@ -21,7 +21,7 @@ interface MappingDriverInterface
     /**
      *
      * @param $className
-     * @return PropertyInterface[]
+     * @return PropertyCollectionInterface
      */
     function createProperties($className);
 }
