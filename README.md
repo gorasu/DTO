@@ -22,6 +22,18 @@
  */
  
  
+  Описание каталогов
+  * Converter/ - конвертор из DTO в другие даные
+  * Exception/ - исключения
+  * Mappings/ - 
+    * Driver/ -  драйвера для маппинга
+    * Property/ - свойства, которые формируются на основе данных маппинга
+  * Tests/  
+    * DTO/  - классы DTOObject для тестирования 
+    * Functional/ - функциональные тесты
+  * vendor/
+ 
+ 
  Прмиер работы кода
  ````
  
@@ -45,7 +57,7 @@
  }
  
    $annotationDriver = new AnnotationDriver();
-         $mapper = new Mappings(Data::class,$annotationDriver);
+         $mapper = new DTOCreator(Data::class,$annotationDriver);
          $object = $mapper->setDataCollection(new DataCollection([
              'Data'=>["test"=>"HELLO"]
              ,"test"=>23
@@ -53,14 +65,3 @@
          ]))
          
  ````
- 
- Описание каталогов
- * Converter/ - конвертор из DTO в другие даные
- * Exception/ - исключения
- * Mappings/ - 
-   * Driver/ -  драйвера для маппинга
-   * Property/ - свойства, которые формируются на основе данных маппинга
- * Tests/  
-   * DTO/  - классы DTOObject для тестирования 
-   * Functional/ - функциональные тесты
- * vendor/
