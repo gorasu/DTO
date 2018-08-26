@@ -6,8 +6,10 @@
  * Time: 13:40
  */
 
-namespace Gora\DTO;
+namespace Gora\DTO\Mappings\Property;
 
+
+use Gora\DTO\Mappings\Property\PropertyTypeInterface;
 
 class PropertyType implements PropertyTypeInterface
 {

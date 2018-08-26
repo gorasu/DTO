@@ -10,6 +10,8 @@ namespace Gora\DTO;
 
 
 use Gora\DTO\Mappings\Driver\MappingDriverInterface;
+use Gora\DTO\Mappings\Property\PropertyInterface;
+use Gora\DTO\Mappings\Property\PropertyTypeInterface;
 use ReflectionClass;
 
 /**

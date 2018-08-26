@@ -9,7 +9,7 @@
 namespace Gora\DTO\Exception;
 
 
-use Gora\DTO\PropertyInterface;
+use Gora\DTO\Mappings\Property\PropertyInterface;
 use Throwable;
 
 class PropertyIsRequiredException extends  \Exception

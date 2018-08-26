@@ -6,8 +6,7 @@
  * Time: 21:45
  */
 
-namespace Gora\DTO;
-
+namespace Gora\DTO\Mappings\Property;
 
 /**
  * Interface PropertyInterface

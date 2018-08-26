@@ -6,7 +6,7 @@
  * Time: 21:37
  */
 namespace Gora\DTO\Mappings\Driver;
-use Gora\DTO\PropertyInterface;
+use Gora\DTO\Mappings\Property\PropertyInterface;
 
 
 /**

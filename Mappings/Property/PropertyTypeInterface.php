@@ -6,7 +6,7 @@
  * Time: 13:38
  */
 
-namespace Gora\DTO;
+namespace Gora\DTO\Mappings\Property;
 
 
 /**

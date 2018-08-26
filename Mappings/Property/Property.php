@@ -6,7 +6,10 @@
  * Time: 21:49
  */
 
-namespace Gora\DTO;
+namespace Gora\DTO\Mappings\Property;
+use Gora\DTO\Mappings\Property\PropertyInterface;
+use Gora\DTO\Mappings\Property\PropertyType;
+use Gora\DTO\Mappings\Property\PropertyTypeInterface;
 
 
 /**

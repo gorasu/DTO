@@ -10,8 +10,8 @@ namespace Gora\DTO\Mappings\Driver;
 
 
 use Gora\DTO\Mappings\Driver\MappingDriverInterface;
-use Gora\DTO\Property;
-use Gora\DTO\PropertyInterface;
+use Gora\DTO\Mappings\Property\Property;
+use Gora\DTO\Mappings\Property\PropertyInterface;
 use ReflectionProperty;
 
 class AnnotationDriver implements MappingDriverInterface
