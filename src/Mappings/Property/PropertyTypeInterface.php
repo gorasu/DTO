@@ -22,6 +22,16 @@ interface PropertyTypeInterface
     function __construct($type);
 
     /**
+     * @return string
+     */
+    function getDtoClassName();
+
+    /**
+     * @return string
+     */
+    function getType();
+
+    /**
      * @return bool
      */
     function isArray();
@@ -45,10 +55,4 @@ interface PropertyTypeInterface
      * @return bool
      */
     function isInteger();
-
-    /**
-     * @return string
-     */
-    function getDtoClassName();
-
 }

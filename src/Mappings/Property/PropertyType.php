@@ -56,7 +56,7 @@ class PropertyType implements PropertyTypeInterface
     /**
      * @return string
      */
-    private function getType()
+    public function getType()
     {
         return $this->type;
     }
@@ -86,7 +86,10 @@ class PropertyType implements PropertyTypeInterface
         return $this->getTypeInLower() == 'integer' || $this->getTypeInLower() == 'int';
     }
 
+
+
     private function getTypeInLower(){
         return mb_strtolower($this->getType());
     }
+
 }
