@@ -28,7 +28,7 @@ class AnnotationCreatorTest extends PHPUnit_Framework_TestCase
 
     function testDTOObject(){
 
-        $dto = new \Gora\DTO\DTOCreator(\Gora\DTO\Tests\DTO\MainDto::class,new \Gora\DTO\Mappings\AnnotationDriver());
+        $dto = new \Gora\DTO\DTOCreator(\Gora\DTO\Tests\DTO\MainDto::class,new \Gora\DTO\Mappings\Driver\AnnotationDriver());
         $dto->setDataCollection(new \Gora\DTO\DataCollection($this->data));
         /** @var \Gora\DTO\Tests\DTO\MainDto $mainDto */
         $mainDto = $dto->createInstance();
