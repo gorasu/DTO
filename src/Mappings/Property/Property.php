@@ -13,7 +13,7 @@ namespace Gora\DTO\Mappings\Property;
  * Class Property
  * @package Gora\DTO
  */
-class Property implements PropertyInterface, PropertyValidateInterface
+class Property implements PropertyValidateInterface
 {
 
     /**

@@ -9,7 +9,7 @@
 namespace Gora\DTO\Mappings\Property;
 
 
-interface PropertyValidateInterface
+interface PropertyValidateInterface extends PropertyInterface
 {
 
     /**
