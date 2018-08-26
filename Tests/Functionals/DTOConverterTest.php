@@ -8,7 +8,7 @@
 
 namespace Gora\DTO\Tests\Functionals;
 
-use Gora\DTO\Mapping\AnnotationDriver;
+use Gora\DTO\Mappings\AnnotationDriver;
 use Gora\DTO\Converter\DTOConverter;
 use Gora\DTO\Tests\DTO\ConvertDto;
 

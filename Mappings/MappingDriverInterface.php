@@ -5,7 +5,7 @@
  * Date: 13.08.2018
  * Time: 21:37
  */
-namespace Gora\DTO\Mapping;
+namespace Gora\DTO\Mappings;
 use Gora\DTO\PropertyInterface;
 
 

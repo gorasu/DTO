@@ -45,7 +45,7 @@
  }
  
    $annotationDriver = new AnnotationDriver();
-         $mapper = new Mapping(Data::class,$annotationDriver);
+         $mapper = new Mappings(Data::class,$annotationDriver);
          $object = $mapper->setDataCollection(new DataCollection([
              'Data'=>["test"=>"HELLO"]
              ,"test"=>23
