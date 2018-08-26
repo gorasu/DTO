@@ -26,7 +26,13 @@ class ConvertDto implements DTOObjectInterface
      */
     public $company;
     /**
-     * @DTO({"type":"\\Gora\\DTO\\Tests\\DTO\\SubMainDto[]","apiName":"sub_main","required":"true"})
+     * @DTO({"type":"\\Gora\\DTO\\Tests\\DTO\\SubMainDto[]","apiName":"sub_mains","required":"true"})
+     * @var
+     */
+    public $subMains;
+
+    /**
+     * @DTO({"type":"\\Gora\\DTO\\Tests\\DTO\\SubMainDto","apiName":"sub_main","required":"true"})
      * @var
      */
     public $subMain;

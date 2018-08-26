@@ -34,8 +34,10 @@ class DTOConverterTest extends \PHPUnit_Framework_TestCase
         $subMain2 =  new SubMainDto();
         $subMain2->name = "Объект-2";
 
-        $this->dto->subMain[] =  $subMain;
-        $this->dto->subMain[] =  $subMain2;
+        $this->dto->subMains[] =  $subMain;
+        $this->dto->subMains[] =  $subMain2;
+
+        $this->dto->subMain =  $subMain2;
 
 
     }
@@ -52,11 +54,16 @@ class DTOConverterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($this->dto->company, $result['company']);
 
 
-        $this->assertInternalType('array',$result['sub_main']);
-        foreach ($result['sub_main'] as $key => $subMain) {
+        $this->assertInternalType('array',$result['sub_mains']);
+        foreach ($result['sub_mains'] as $key => $subMain) {
             $this->assertArrayHasKey('name', $subMain);
-            $this->assertEquals($this->dto->subMain[$key]['name'], $subMain['name']);
+            $this->assertEquals($this->dto->subMains[$key]->name, $subMain['name']);
         }
+
+        $this->assertInternalType('array',$result['sub_main']);
+        $this->assertArrayHasKey('name', $result['sub_main']);
+        $this->assertEquals($this->dto->subMain->name, $result['sub_main']['name']);
+
 
     }
     public function testConvertToArray()
