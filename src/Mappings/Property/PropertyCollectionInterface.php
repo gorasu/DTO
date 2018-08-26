@@ -9,13 +9,18 @@
 namespace Gora\DTO\Mappings\Property;
 
 
-interface PropertyCollectionInterface extends \ArrayAccess
+interface PropertyCollectionInterface extends  \IteratorAggregate
 {
-    /**
-     * @return PropertyInterface[]
-     */
-    function getProperties();
 
+    /**
+     * @return \ArrayIterator || PropertyInterface[]
+     */
+    function getIterator();
+
+    /**
+     * @param PropertyInterface $property
+     * @return mixed
+     */
     function add(PropertyInterface $property);
 
 
