@@ -15,7 +15,7 @@ class NotDoneException extends \Exception
 {
     function __construct($message = "", $code = 0, Throwable $previous = null)
     {
-        $message = "Функционал не реализован ".$message;
+        $message = "It has not released yet ".$message;
         parent::__construct($message, $code, $previous);
     }
 
