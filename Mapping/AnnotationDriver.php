@@ -6,10 +6,11 @@
  * Time: 21:47
  */
 
-namespace Gora\DTO;
+namespace Gora\DTO\Mapping;
 
 
-use Gora\DTO\Mapping\MappingDriverInterface;
+use Gora\DTO\Property;
+use Gora\DTO\PropertyInterface;
 use ReflectionProperty;
 
 class AnnotationDriver implements MappingDriverInterface
