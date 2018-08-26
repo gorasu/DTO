@@ -7,7 +7,7 @@
  */
 
 namespace Gora\DTO;
-use Gora\DTO\Mappings\MappingDriverInterface;
+use Gora\DTO\Mappings\Driver\MappingDriverInterface;
 
 /**
  * Класс отвечающий за создание объектов на основе имени класа и свйост

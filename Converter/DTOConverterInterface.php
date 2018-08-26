@@ -10,7 +10,7 @@ namespace Gora\DTO\Converter;
 
 
 use Gora\DTO\DTOObjectInterface;
-use Gora\DTO\Mappings\MappingDriverInterface;
+use Gora\DTO\Mappings\Driver\MappingDriverInterface;
 
 /**
  * Interface DTOConverterInterface
