@@ -6,7 +6,7 @@
  * Time: 7:52
  */
 
-namespace Gora\DTO\Tests\Functionals;
+namespace Gora\DTO\Tests\Functional;
 
 
 class ExampleForReadMeTest extends \PHPUnit_Framework_TestCase

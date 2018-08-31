@@ -6,7 +6,7 @@
  * Time: 22:54
  */
 
-namespace Gora\DTO\Tests\Functionals;
+namespace Gora\DTO\Tests\Functional;
 
 use Gora\DTO\Mappings\Driver\AnnotationDriver;
 use Gora\DTO\Converter\DTOConverter;
