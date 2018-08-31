@@ -33,32 +33,110 @@
  
  Прмиер работы кода
  ````
- 
- class Data implements DTOObjectInterface
- {
-     /**
-      * @DTO({"type":"string"});
-      * @var
-      */
-     public $test;
- 
-     /**
-      * @DTO({"type":"Gora\\YandexDeliveryBundle\\Components\\YandexDeliveryApi\\DTO\\SearchDeliveryList\\Data","required":"false"});
-      * @var
-      */
-     public $Data;
- 
-     public function __construct()
-     {
-     }
- }
- 
-   $annotationDriver = new AnnotationDriver();
-         $mapper = new DTOCreator(Data::class,$annotationDriver);
-         $object = $mapper->setDataCollection(new DataCollection([
-             'Data'=>["test"=>"HELLO"]
-             ,"test"=>23
- 
-         ]))
+
+
+class DTOExample  implements DTOObjectInterface
+{
+    /**
+     * @DTO({"type":"string"});
+     * @var
+     */
+    public $sting;
+
+    /**
+     * @DTO({"type":"Gora\\DTO\\Tests\\DTO\\DTOExample"});
+     * @var
+     */
+    public $objectDTO;
+
+    /**
+     * @DTO({"type":"Gora\\DTO\\Tests\\DTO\\DTOExample[]"});
+     * @var
+     */
+    public $objectDtoList;
+
+    public function __construct()
+    {
+    }
+}
+
+
+      $annotationDriver = new AnnotationDriver();
+        $mapper = new DTOCreator(DTOExample::class,$annotationDriver);
+        /** @var DTOExample $DTOExample */
+         $mapper->setDataCollection(new DataCollection($provider));
+        $DTOExample = $mapper->createInstance();
+        
+         
+         
+    print_r($DTOExample);
+    
+    Gora\DTO\Tests\DTO\DTOExample Object
+    (
+        [sting] => I am sting
+        [objectDTO] => Gora\DTO\Tests\DTO\DTOExample Object
+            (
+                [sting] => I am sting in sub object
+                [objectDTO] => 
+                [objectDtoList] => 
+            )
+    
+        [objectDtoList] => Array
+            (
+                [0] => Gora\DTO\Tests\DTO\DTOExample Object
+                    (
+                        [sting] => I am sting in sub object
+                        [objectDTO] => 
+                        [objectDtoList] => 
+                    )
+    
+                [1] => Gora\DTO\Tests\DTO\DTOExample Object
+                    (
+                        [sting] => I am sting in sub object
+                        [objectDTO] => 
+                        [objectDtoList] => 
+                    )
+    
+            )
+    
+    )
+
+    
+    
+    $convener = new DTOConverter($annotationDriver);
+    $convertArray = $convener->convert($DTOExample)->toArray();
+    Array
+    (
+        [sting] => I am sting
+        [objectDTO] => Array
+            (
+                [sting] => I am sting in sub object
+                [objectDTO] => 
+                [objectDtoList] => 
+            )
+    
+        [objectDtoList] => Array
+            (
+                [0] => Array
+                    (
+                        [sting] => I am sting in sub object
+                        [objectDTO] => 
+                        [objectDtoList] => 
+                    )
+    
+                [1] => Array
+                    (
+                        [sting] => I am sting in sub object
+                        [objectDTO] => 
+                        [objectDtoList] => 
+                    )
+    
+            )
+    
+    )
+
+
+     
+         
          
  ````
