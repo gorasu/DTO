@@ -59,6 +59,26 @@ class DTOExample  implements DTOObjectInterface
     {
     }
 }
+$provider =   array (
+                'objectDTO' => 
+                
+                array (
+                  'sting' => 'I am sting in sub object',
+                ),
+                
+                'objectDtoList' => 
+                array (
+                  0 => 
+                  array (
+                    'sting' => 'I am sting in sub object',
+                  ),
+                  1 => 
+                  array (
+                    'sting' => 'I am sting in sub object',
+                  ),
+                ),
+                'sting' => 'I am sting',
+              )
 
 
       $annotationDriver = new AnnotationDriver();
