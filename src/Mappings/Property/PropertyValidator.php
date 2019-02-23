@@ -42,7 +42,7 @@ class PropertyValidator implements PropertyValidatorInterface
             return is_array($value);
         }
         if($propertyType->isString()){
-            return is_string($value);
+            return is_string(strval($value));
         }
         if($propertyType->isBool()){
             return is_bool($value);
